@@ -80,3 +80,61 @@ export const SIDE_MENU = [
     icon: '',
   },
 ];
+
+export const SIDE_MENU_DATA = [
+  {
+    name: 'Công cụ dữ liệu',
+    subMenu: [
+      {
+        name: 'Kiểm tra dữ liệu giáo dân',
+        icon: '',
+      },
+      {
+        name: 'Kiểm tra dữ liệu gia đình',
+        icon: '',
+      },
+      {
+        name: 'Chuẩn hóa dữ liệu giáo dân',
+        icon: '',
+      },
+      {
+        name: 'Chuẩn hóa dữ liệu gia đình',
+        icon: '',
+      },
+      {
+        name: 'Chuyển họ cho giáo dân',
+        icon: '',
+      },
+      {
+        name: 'Chuyển họ cho gia đình',
+        icon: '',
+      },
+      {
+        name: 'Tạo danh sách bí tích tự động',
+        icon: '',
+      },
+    ],
+    icon: '',
+  },
+];
+
+export const SIDE_MENU_SEARCH = [
+  {
+    name: 'Tìm Kiếm',
+    subMenu: [
+      {
+        name: 'Tìm kiếm giáo dân',
+        icon: '',
+      },
+      {
+        name: 'Tìm kiếm gia đình giáo dân',
+        icon: '',
+      },
+      {
+        name: 'Tìm kiếm và Thay thế',
+        icon: '',
+      },
+    ],
+    icon: '',
+  },
+];

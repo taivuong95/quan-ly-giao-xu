@@ -3,14 +3,36 @@ import React from 'react';
 import { Layout, Menu, Icon } from 'antd';
 import 'antd/dist/antd.css';
 
-import { SIDE_MENU } from '../../models/SideMenuModel';
+import {
+  SIDE_MENU,
+  SIDE_MENU_SEARCH,
+  SIDE_MENU_DATA,
+} from '../../models/SideMenuModel';
 import './SideMenu.scss';
 
 const SideMenu = props => {
   const { SubMenu } = Menu;
   const { Sider } = Layout;
 
-  const menu = SIDE_MENU.map((item, index) => {
+  let type = '';
+
+  switch (props.type) {
+    case 'GX':
+      type = SIDE_MENU;
+      break;
+    case 'Search':
+      type = SIDE_MENU_SEARCH;
+      break;
+    case 'CCDL':
+      type = SIDE_MENU_DATA;
+      break;
+    default:
+      type = SIDE_MENU;
+  }
+
+  console.log(props.type);
+
+  const menu = type.map((item, index) => {
     const submenu = (
       <SubMenu
         key={index}

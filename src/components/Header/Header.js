@@ -6,6 +6,10 @@ import 'antd/dist/antd.css';
 const Header = props => {
   const { Header } = Layout;
 
+  const itemOnclick = e => {
+    props.selectItem(e.key);
+  };
+
   return (
     <Header className="header">
       <div className="logo" />
@@ -15,9 +19,15 @@ const Header = props => {
         defaultSelectedKeys={['2']}
         style={{ lineHeight: '64px' }}
       >
-        <Menu.Item key="1">nav 1</Menu.Item>
-        <Menu.Item key="2">nav 2</Menu.Item>
-        <Menu.Item key="3">nav 3</Menu.Item>
+        <Menu.Item key="GX" onClick={itemOnclick}>
+          Giáo Xứ
+        </Menu.Item>
+        <Menu.Item key="CCDL" onClick={itemOnclick}>
+          Công Cụ Dữ Liệu
+        </Menu.Item>
+        <Menu.Item key="Search" onClick={itemOnclick}>
+          Tìm Kiếm
+        </Menu.Item>
       </Menu>
     </Header>
   );
