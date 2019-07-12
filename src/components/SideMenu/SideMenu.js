@@ -58,8 +58,9 @@ const SideMenu = props => {
       style={{ background: '#fff', height: '93vh', backgroundColor: '#3464b3' }}
     >
       <Menu
+        theme="dark"
         mode="inline"
-        defaultSelectedKeys={['0']}
+        defaultSelectedKeys={['00']}
         defaultOpenKeys={['0']}
         style={{ height: '100%', borderRight: 0 }}
       >

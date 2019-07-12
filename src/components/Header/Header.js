@@ -16,8 +16,8 @@ const Header = props => {
       <Menu
         theme="dark"
         mode="horizontal"
-        defaultSelectedKeys={['2']}
-        style={{ lineHeight: '64px' }}
+        defaultSelectedKeys={['GX']}
+        style={{ lineHeight: '64px', textAlign: 'right' }}
       >
         <Menu.Item key="GX" onClick={itemOnclick}>
           Giáo Xứ

@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
+
 import { Layout } from 'antd';
 import 'antd/dist/antd.css';
 import MainContent from '../MainContent/MainContent';
 import SideMenu from '../SideMenu/SideMenu';
 import Header from '../Header/Header';
+
+import { GXProvider } from '../../contexts/gxContext';
+import reducer from '../../store/reducers/gxReducer';
+import { GX_STATES_MODEL } from '../../models/gxStatesModel';
 
 const MainLayout = props => {
   const [tab, setTab] = useState('GX');
@@ -16,8 +21,10 @@ const MainLayout = props => {
     <Layout>
       <Header selectItem={selectTab} />
       <Layout>
-        <SideMenu type={tab} />
-        <MainContent />
+        <GXProvider reducer={reducer} initialState={GX_STATES_MODEL}>
+          <SideMenu type={tab} />
+          <MainContent />
+        </GXProvider>
       </Layout>
     </Layout>
   );
