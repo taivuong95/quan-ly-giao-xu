@@ -14,6 +14,10 @@ const SideMenu = props => {
   const { SubMenu } = Menu;
   const { Sider } = Layout;
 
+  const itemOnclick = e => {
+    props.selectContent(e);
+  };
+
   let type = '';
 
   switch (props.type) {
@@ -30,7 +34,7 @@ const SideMenu = props => {
       type = SIDE_MENU;
   }
 
-  console.log(props.type);
+  // console.log(props.type);
 
   const menu = type.map((item, index) => {
     const submenu = (
@@ -44,7 +48,14 @@ const SideMenu = props => {
         }
       >
         {item.subMenu.map((menuItem, i) => {
-          return <Menu.Item key={index + '' + i}>{menuItem.name}</Menu.Item>;
+          return (
+            <Menu.Item
+              key={index + '' + i}
+              onClick={() => itemOnclick(menuItem.name)}
+            >
+              {menuItem.name}
+            </Menu.Item>
+          );
         })}
       </SubMenu>
     );
@@ -62,6 +73,7 @@ const SideMenu = props => {
         mode="inline"
         defaultSelectedKeys={['00']}
         defaultOpenKeys={['0']}
+        // onSelect={}
         style={{ height: '100%', borderRight: 0 }}
       >
         {menu}
