@@ -12,9 +12,17 @@ import { GX_STATES_MODEL } from '../../models/gxStatesModel';
 
 const MainLayout = props => {
   const [tab, setTab] = useState('GX');
+  const [content, setContent] = useState('Giáo xứ');
 
   const selectTab = data => {
     setTab(data);
+  };
+
+  const selectContent = data => {
+    // CONTENT_DATA.forEach(element => {
+    //   console.log(element.name);
+    // });
+    setContent(data);
   };
 
   return (
@@ -22,8 +30,8 @@ const MainLayout = props => {
       <Header selectItem={selectTab} />
       <Layout>
         <GXProvider reducer={reducer} initialState={GX_STATES_MODEL}>
-          <SideMenu type={tab} />
-          <MainContent />
+          <SideMenu type={tab} selectContent={selectContent} />
+          <MainContent type={content} />
         </GXProvider>
       </Layout>
     </Layout>
