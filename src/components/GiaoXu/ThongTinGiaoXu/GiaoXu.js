@@ -1,10 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const GiaoXu = props => {
-  return <div>Nội dung trang Giáo Xứ</div>;
+import { GIAO_XU } from '../../../models/formModel';
+import CustomForm from '../../Form/CustomForm';
+
+const GiaoXu = () => {
+  return (
+    <CustomForm formModel={GIAO_XU} />
+
+  );
 };
-
-GiaoXu.propTypes = {};
 
 export default GiaoXu;

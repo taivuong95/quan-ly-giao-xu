@@ -9,6 +9,7 @@ import Header from '../Header/Header';
 import { GXProvider } from '../../contexts/gxContext';
 import reducer from '../../store/reducers/gxReducer';
 import { GX_STATES_MODEL } from '../../models/gxStatesModel';
+import GiaoXu from '../GiaoXu/ThongTinGiaoXu/GiaoXu';
 
 const MainLayout = props => {
   const [tab, setTab] = useState('GX');
@@ -30,8 +31,10 @@ const MainLayout = props => {
       <Header selectItem={selectTab} />
       <Layout>
         <GXProvider reducer={reducer} initialState={GX_STATES_MODEL}>
-          <SideMenu type={tab} selectContent={selectContent} />
-          <MainContent type={content} />
+    <SideMenu type={tab} selectContent={selectContent} />
+          <MainContent >
+            <GiaoXu />
+          </MainContent>
         </GXProvider>
       </Layout>
     </Layout>
