@@ -10,20 +10,30 @@ import { GXProvider } from '../../contexts/gxContext';
 import reducer from '../../store/reducers/gxReducer';
 import { GX_STATES_MODEL } from '../../models/gxStatesModel';
 import GiaoXu from '../GiaoXu/ThongTinGiaoXu/GiaoXu';
+import GiaoHo from '../GiaoXu/ThongTinGiaoXu/GiaoHo';
 
 const MainLayout = props => {
   const [tab, setTab] = useState('GX');
-  const [content, setContent] = useState('Giáo xứ');
+  const [content, setContent] = useState(<GiaoXu />);
 
   const selectTab = data => {
     setTab(data);
   };
-
+  let cloneContent = content;
   const selectContent = data => {
-    // CONTENT_DATA.forEach(element => {
-    //   console.log(element.name);
-    // });
-    setContent(data);
+    console.log(data);
+    switch (data) {
+      case 'Giáo xứ':
+        setContent(<GiaoXu />);
+        break;
+      case 'Giáo họ':
+        setContent(<GiaoHo />);
+        break;
+      default:
+        break;
+    }
+
+    // setContent(data);
   };
 
   return (
@@ -31,10 +41,8 @@ const MainLayout = props => {
       <Header selectItem={selectTab} />
       <Layout>
         <GXProvider reducer={reducer} initialState={GX_STATES_MODEL}>
-    <SideMenu type={tab} selectContent={selectContent} />
-          <MainContent >
-            <GiaoXu />
-          </MainContent>
+          <SideMenu type={tab} selectContent={selectContent} />
+          <MainContent>{cloneContent}</MainContent>
         </GXProvider>
       </Layout>
     </Layout>
