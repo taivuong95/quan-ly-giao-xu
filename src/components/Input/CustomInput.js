@@ -9,8 +9,8 @@ const CustomInput = props => {
   switch (item.type) {
     case 'text':
       return (
-        <Col span={item.column}>
-          <Form.Item label={item.name} className="input mr-20">
+        <Col>
+          <Form.Item label={item.name}>
             {getFieldDecorator(item.name, {
               rules: [{ required: item.required, message: item.errMess }],
             })(
@@ -25,7 +25,7 @@ const CustomInput = props => {
     case 'textarea':
       return (
         <Col span={item.column}>
-          <Form.Item label={item.name} className="input mr-20">
+          <Form.Item label={item.name}>
             {getFieldDecorator(item.name, {
               rules: [{ required: item.required, message: item.errMess }],
             })(

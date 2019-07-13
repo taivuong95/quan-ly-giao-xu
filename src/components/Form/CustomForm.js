@@ -1,43 +1,26 @@
 import React from 'react';
-import {
-  Input,
-  Form,
-  Icon,
-  Button,
-  Select,
-  AutoComplete,
-  Col,
-  Row,
-} from 'antd';
+import { Form, Row, Input, Col } from 'antd';
 import CustomInput from '../Input/CustomInput';
 import './CustomForm.scss';
+import { Button } from 'antd/lib/radio';
 
-const { Option } = Select;
-const AutoCompleteOption = AutoComplete.Option;
+import { GIAO_XU } from '../../models/formModel';
 
 const CustomForm = props => {
   const { formModel, form } = props;
-  console.log(formModel);
-
-  // const formItemLayout = {
-  //   labelCol: {
-  //     xs: { span: 24 },
-  //     sm: { span: 8 },
-  //   },
-  //   wrapperCol: {
-  //     xs: { span: 24 },
-  //     sm: { span: 16 },
-  //   },
-  // };
-
-  let toRender,
-    renderData = [];
-  toRender = formModel.map((item, index) => (
-    <Col>Đây là cột ${index}</Col>
-    // <CustomInput item={item} key={index} form={form} />
-  ));
-  renderData = toRender.map((item, index) => (
-    <CustomInput item={item} key={index} form={form} />
+  let toRender = [];
+  toRender = GIAO_XU.map((item, index) => (
+    <Row>
+      {item.col.map(colItem => {
+        return (
+          <Col span={item.span}>
+            <Form.Item label={colItem.name}>
+              <Input size="small" placeholder={colItem.placeholder} />
+            </Form.Item>
+          </Col>
+        );
+      })}
+    </Row>
   ));
   const handleSubmit = e => {
     e.preventDefault();
@@ -48,13 +31,8 @@ const CustomForm = props => {
     });
   };
   return (
-    <Form
-      // {...formItemLayout}
-      layout="inline"
-      onSubmit={handleSubmit}
-      className="form"
-    >
-      <Row>{toRender}</Row>
+    <Form onSubmit={handleSubmit} className="form">
+      {toRender}
     </Form>
   );
 };
