@@ -1,34 +1,46 @@
 import React from 'react';
-import { Form, Input, Icon } from 'antd';
+import { Form, Input, Icon, Col } from 'antd';
 import './CustomInput.scss';
-
-const CustomInput = (props) => {
+const { TextArea } = Input;
+const CustomInput = props => {
   const { item, form } = props;
-  console.log(form);
   const { getFieldDecorator } = form;
 
   switch (item.type) {
     case 'text':
       return (
-        <Form.Item label={item.name} className="input">
-          {getFieldDecorator(item.name, {
-            rules: [{ required: item.required, message: item.errMess }],
-          })(
-            <Input
-              prefix={<Icon type={item.icon} style={{ color: 'rgba(0,0,0,.25)' }} />}
-
-            // placeholder={item.placeholder}
-            />,
-          )}
-        </Form.Item>
+        <Col span={item.column}>
+          <Form.Item label={item.name} className="input mr-20">
+            {getFieldDecorator(item.name, {
+              rules: [{ required: item.required, message: item.errMess }],
+            })(
+              <Input
+                // prefix={<Icon type="" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                placeholder={item.placeholder}
+              />
+            )}
+          </Form.Item>
+        </Col>
       );
-
-    default:
+    case 'textarea':
       return (
-        null
+        <Col span={item.column}>
+          <Form.Item label={item.name} className="input mr-20">
+            {getFieldDecorator(item.name, {
+              rules: [{ required: item.required, message: item.errMess }],
+            })(
+              <TextArea
+                rows={4}
+                // prefix={<Icon type="" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                placeholder={item.placeholder}
+              />
+            )}
+          </Form.Item>
+        </Col>
       );
+    default:
+      return null;
   }
-
 };
 
-export default CustomInput
+export default CustomInput;

@@ -55,20 +55,22 @@ const formGiaoHo = (
               />
             </Form.Item>
           </Col>
-          <FormItem>
-            <Form.Item className="ButtonGroup" style={{ marginTop: '10px' }}>
-              <Button icon="plus" size="large" style={{ margin: '0 10px' }}>
-                Thêm
-              </Button>
+          <Col span={24}>
+            <FormItem>
+              <Form.Item className="ButtonGroup" style={{ marginTop: '10px' }}>
+                <Button icon="plus" size="large" style={{ margin: '0 10px' }}>
+                  Thêm
+                </Button>
 
-              <Button icon="save" size="large" style={{ margin: '0 10px' }}>
-                Lưu
-              </Button>
-              <Button icon="sync" size="large" style={{ margin: '0 10px' }}>
-                Tải lại danh sách
-              </Button>
-            </Form.Item>
-          </FormItem>
+                <Button icon="save" size="large" style={{ margin: '0 10px' }}>
+                  Lưu
+                </Button>
+                <Button icon="sync" size="large" style={{ margin: '0 10px' }}>
+                  Tải lại danh sách
+                </Button>
+              </Form.Item>
+            </FormItem>
+          </Col>
         </Row>
       </Form>
     </div>
@@ -85,7 +87,12 @@ const formGiaoHo = (
       <Button icon="form" size="large" style={{ marginBottom: '10px' }}>
         Danh sách Giáo Khu
       </Button>
-      <Table pagination="true" columns={columns} dataSource={data} />
+      <Table
+        pagination="true"
+        columns={columns}
+        dataSource={data}
+        scroll={{ y: 350 }}
+      />
     </div>
   </React.Fragment>
 );
