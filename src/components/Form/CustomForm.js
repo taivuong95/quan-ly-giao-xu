@@ -1,17 +1,27 @@
 import React from 'react';
-import { Input, Form, Icon, Button, Select, AutoComplete } from 'antd';
+import { Form, Row, Input, Col } from 'antd';
 import CustomInput from '../Input/CustomInput';
 import './CustomForm.scss';
+import { Button } from 'antd/lib/radio';
 
-const { Option } = Select;
-const AutoCompleteOption = AutoComplete.Option;
+import { GIAO_XU_TEST } from '../../models/formModel';
 
-const CustomForm = (props) => {
+const CustomForm = props => {
   const { formModel, form } = props;
   let toRender = [];
-  toRender = formModel.map((item, index) =>
-    <CustomInput item={item} key={index} form={form} />
-  );
+  toRender = GIAO_XU_TEST.map((item, index) => (
+    <Row>
+      {item.col.map(colItem => {
+        return (
+          <Col span={item.span}>
+            <Form.Item label={colItem.name}>
+              <Input size="small" placeholder="Hãy Nhập Tên Giáo Họ" />
+            </Form.Item>
+          </Col>
+        );
+      })}
+    </Row>
+  ));
   const handleSubmit = e => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
@@ -27,10 +37,7 @@ const CustomForm = (props) => {
   );
 };
 
-const WrappedNormalLoginForm = Form.create({ name: 'normal_login' })(CustomForm);
+const WrappedNormalLoginForm = Form.create({ name: 'normal_login' })(
+  CustomForm
+);
 export default WrappedNormalLoginForm;
-
-
-
-
-

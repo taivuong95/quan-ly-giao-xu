@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Layout, Breadcrumb } from 'antd';
+import { Layout } from 'antd';
 import 'antd/dist/antd.css';
 
 import Classes from './MainContent.module.scss';
