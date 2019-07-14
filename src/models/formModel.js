@@ -71,73 +71,45 @@ export const GIAO_XU = [
         placeholder: 'Nhập ghi chú',
       },
     ],
-    span: 6,
+    span: 10,
   },
 ];
 
-export const GIAO_XU_TEST = [
+export const GIAO_HO = [
   {
     col: [
       {
-        name: 'Tên giáo phận:',
+        name: 'Tên giáo Họ:',
         type: 'text',
         icon: 'user',
         required: 'true',
-        errMess: 'Vui lòng nhập tên giáo phận',
-      },
-      {
-        name: 'Tên giáo hạt:',
-        type: 'text',
-        icon: 'user',
-        required: 'true',
-        errMess: 'Vui lòng nhập tên giáo hạt',
+        errMess: 'Vui lòng nhập tên giáo họ',
+        placeholder: 'Nhập tên giáo họ',
       },
     ],
     span: 10,
   },
-  {
-    col: [
-      {
-        name: 'Tên giáo phận:',
-        type: 'text',
-        icon: 'user',
-        required: 'true',
-        errMess: 'Vui lòng nhập tên giáo phận',
-      },
-      {
-        name: 'Tên giáo hạt:',
-        type: 'text',
-        icon: 'user',
-        required: 'true',
-        errMess: 'Vui lòng nhập tên giáo hạt',
-      },
-    ],
-    span: 10,
-  },
-  {
-    col: [
-      {
-        name: 'Tên giáo phận:',
-        type: 'text',
-        icon: 'user',
-        required: 'true',
-        errMess: 'Vui lòng nhập tên giáo phận',
-      },
-      {
-        name: 'Tên giáo hạt:',
-        type: 'text',
-        icon: 'user',
-        required: 'true',
-        errMess: 'Vui lòng nhập tên giáo hạt',
-      },
-      {
-        name: 'Tên giáo phận:',
-        type: 'text',
-        icon: 'user',
-        required: 'true',
-        errMess: 'Vui lòng nhập tên giáo phận',
-      },
-    ],
-    span: 6,
-  },
+  // {
+  //   col: [
+  //     {
+  //       name: 'Thêm',
+  //       type: 'button',
+  //       icon: 'plus',
+  //       required: 'true',
+  //     },
+  //     {
+  //       name: 'Lưu',
+  //       type: 'button',
+  //       icon: 'save',
+  //       required: 'true',
+  //     },
+  //     {
+  //       name: 'Tải lại danh sách',
+  //       type: 'button',
+  //       icon: 'sync',
+  //       required: 'true',
+  //     },
+  //   ],
+  //   span: 10,
+  // },
 ];

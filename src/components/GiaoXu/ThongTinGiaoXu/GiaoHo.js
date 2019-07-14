@@ -1,7 +1,8 @@
 import React from 'react';
 import { Form, Input, Button, Row, Col, Table } from 'antd';
 import FormItem from 'antd/lib/form/FormItem';
-
+import { GIAO_HO } from '../../../models/formModel';
+import CustomForm from '../../Form/CustomForm';
 const GiaoHo = props => {
   const data = [];
   for (let i = 0; i < 46; i++) {
@@ -35,10 +36,11 @@ const GiaoHo = props => {
     },
   ];
 
+  const GiaoHo = <CustomForm formModel={GIAO_HO}/>
+
   const formGiaoHo = (
     <>
       <div
-        className="form"
         style={{
           border: '1px solid #ccc',
           padding: '20px',
@@ -46,9 +48,10 @@ const GiaoHo = props => {
         }}
       >
         <p>Nhập Giáo Họ</p>
-        <Form layout="inline">
+        {GiaoHo}
+        {/* <Form layout="inline">
           <Row>
-            <Col span={24}>
+            <Col>
               <Form.Item label="Tên Giáo Họ">
                 <Input
                   size="small"
@@ -60,11 +63,7 @@ const GiaoHo = props => {
           </Row>
           <Row>
             <Col>
-              <Form.Item
-                className="ButtonGroup"
-                style={{ marginTop: '10px' }}
-                span={24}
-              >
+              <Form.Item className="ButtonGroup" style={{ marginTop: '10px' }}>
                 <Button icon="plus" size="large" style={{ margin: '0 10px' }}>
                   Thêm
                 </Button>
@@ -78,7 +77,7 @@ const GiaoHo = props => {
               </Form.Item>
             </Col>
           </Row>
-        </Form>
+        </Form> */}
       </div>
       <div
         className="table"
