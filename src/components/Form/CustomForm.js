@@ -4,19 +4,22 @@ import CustomInput from '../Input/CustomInput';
 import './CustomForm.scss';
 import { Button } from 'antd/lib/radio';
 
-import { GIAO_XU_TEST } from '../../models/formModel';
+import { GIAO_XU } from '../../models/formModel';
 
 const CustomForm = props => {
-  const { formModel, form } = props;
+  const {formModel} = props;
+  console.log(formModel);
+  
   let toRender = [];
-  toRender = GIAO_XU_TEST.map((item, index) => (
+  toRender = formModel.map((item, index) => (
     <Row>
       {item.col.map(colItem => {
         return (
           <Col span={item.span}>
-            <Form.Item label={colItem.name}>
+            {/* <Form.Item label={colItem.name}>
               <Input size="small" placeholder="Hãy Nhập Tên Giáo Họ" />
-            </Form.Item>
+            </Form.Item> */}
+            <CustomInput type={colItem}/>
           </Col>
         );
       })}
