@@ -21,6 +21,7 @@ const CustomInput = props => {
         <Button icon="plus" size="large">
           Thêm
         </Button>
+
       );
 
     default:
