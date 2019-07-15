@@ -6,7 +6,10 @@ import classes from './CustomForm.module.scss';
 
 const CustomForm = props => {
   const { formModel, form } = props;
-  console.log(props.formModel);
+
+  const onChangeHandler = value => {
+    props.parrentAction(value);
+  };
 
   let toRender = [];
   toRender = formModel.map((item, index) => (
@@ -15,7 +18,7 @@ const CustomForm = props => {
         return (
           <Col span={item.span} className={classes.Form}>
             <Form.Item label={colItem.type === 'button' ? '' : colItem.name}>
-              <CustomInput inputData={colItem} />
+              <CustomInput inputData={colItem} changed={onChangeHandler} />
             </Form.Item>
           </Col>
         );
@@ -42,6 +45,7 @@ const CustomForm = props => {
       }}
     >
       {toRender}
+      {props.children}
     </Form>
   );
 };

@@ -6,16 +6,30 @@ import TextArea from 'antd/lib/input/TextArea';
 const CustomInput = props => {
   const item = { ...props.inputData };
 
+  const inputHanlder = e => {
+    props.changed(e.target.value);
+  };
+
+  const buttonClick = () => {
+    props.clicked();
+  };
+
   switch (item.type) {
     case 'text':
-      return <Input size="medium" placeholder={item.placeholder} />;
+      return (
+        <Input
+          size="default"
+          placeholder={item.placeholder}
+          onChange={inputHanlder}
+        />
+      );
 
     case 'textarea':
-      return <TextArea rows={4} />;
+      return <TextArea rows={4} onChange={inputHanlder} />;
 
     case 'button':
       return (
-        <Button icon="plus" size="large">
+        <Button icon="plus" size="large" onClick={buttonClick}>
           {item.name}
         </Button>
       );
