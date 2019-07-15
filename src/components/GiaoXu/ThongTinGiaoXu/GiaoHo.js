@@ -36,7 +36,7 @@ const GiaoHo = props => {
     },
   ];
 
-  const GiaoHo = <CustomForm formModel={GIAO_HO}/>
+  const GiaoHo = <CustomForm formModel={GIAO_HO} />;
 
   const formGiaoHo = (
     <>

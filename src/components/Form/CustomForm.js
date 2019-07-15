@@ -13,10 +13,10 @@ const CustomForm = props => {
 
   let toRender = [];
   toRender = props.formModel.map((item, index) => (
-    <Row className={classes.Form}>
+    <Row>
       {item.col.map(colItem => {
         return (
-          <Col span={item.span}>
+          <Col span={item.span} className={classes.Form}>
             <Form.Item label={colItem.name}>
               <CustomInput inputData={colItem} />
             </Form.Item>
