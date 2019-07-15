@@ -1,28 +1,32 @@
 import React from 'react';
-import { Form, Input, Icon } from 'antd';
+import { Form, Input, Icon, Col } from 'antd';
 import './CustomInput.scss';
-
+const { TextArea, Button } = Input;
 const CustomInput = props => {
-  const { item, form } = props;
-  console.log(form);
-  const { getFieldDecorator } = form;
+  // const { item, form } = props;
+  // const { getFieldDecorator } = props.form;
+
+  const item = { ...props.inputData };
+  console.log(item);
 
   switch (item.type) {
     case 'text':
       return (
-        <Form.Item label={item.name} className="input">
-          {getFieldDecorator(item.name, {
-            rules: [{ required: item.required, message: item.errMess }],
-          })(
-            <Input
-              prefix={
-                <Icon type={item.icon} style={{ color: 'rgba(0,0,0,.25)' }} />
-              }
+        <Input
+          size="small"
+          placeholder={item.placeholder}
+          style={{ width: '500px', minWidth: '100%' }}
+        />
+      );
 
-              // placeholder={item.placeholder}
-            />
-          )}
-        </Form.Item>
+    case 'textarea':
+      return <TextArea rows={4} style={{ width: '500px', minWidth: '100%' }} />;
+
+    case 'button':
+      return (
+        <Button icon="plus" size="large" style={{ margin: '0 10px' }}>
+          Thêm
+        </Button>
       );
 
     default:
