@@ -58,7 +58,7 @@ export const GIAO_XU = [
         placeholder: 'Nhập email',
       },
     ],
-    span: 10,
+    span: 8,
   },
   {
     col: [

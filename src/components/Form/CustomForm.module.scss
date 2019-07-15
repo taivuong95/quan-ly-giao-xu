@@ -1,5 +1,7 @@
 .Form {
-    display: table;
+  display: table;
 }
 
-
+:global .ant-form-inline .ant-form-item > .ant-form-item-label {
+  min-width: 100px;
+}

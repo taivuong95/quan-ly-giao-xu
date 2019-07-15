@@ -1,7 +1,6 @@
 import React from 'react';
 import { Form, Row, Input, Col } from 'antd';
 import CustomInput from '../Input/CustomInput';
-// import './CustomForm.scss';
 import { Button } from 'antd/lib/radio';
 
 import { GIAO_XU } from '../../models/formModel';
@@ -12,12 +11,12 @@ const CustomForm = props => {
   console.log(props.formModel);
 
   let toRender = [];
-  toRender = props.formModel.map((item, index) => (
+  toRender = formModel.map((item, index) => (
     <Row>
       {item.col.map(colItem => {
         return (
           <Col span={item.span} className={classes.Form}>
-            <Form.Item label={colItem.name}>
+            <Form.Item label={colItem.name} style={{ minWidth: '100px' }}>
               <CustomInput inputData={colItem} />
             </Form.Item>
           </Col>
@@ -27,7 +26,7 @@ const CustomForm = props => {
   ));
   const handleSubmit = e => {
     e.preventDefault();
-    this.props.form.validateFields((err, values) => {
+    form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
       }

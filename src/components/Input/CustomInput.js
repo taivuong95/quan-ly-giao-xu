@@ -11,20 +11,14 @@ const CustomInput = props => {
 
   switch (item.type) {
     case 'text':
-      return (
-        <Input
-          size="small"
-          placeholder={item.placeholder}
-          style={{ width: '500px', minWidth: '100%' }}
-        />
-      );
+      return <Input size="small" placeholder={item.placeholder} />;
 
     case 'textarea':
-      return <TextArea rows={4} style={{ width: '500px', minWidth: '100%' }} />;
+      return <TextArea rows={4} />;
 
     case 'button':
       return (
-        <Button icon="plus" size="large" style={{ margin: '0 10px' }}>
+        <Button icon="plus" size="large">
           Thêm
         </Button>
       );
