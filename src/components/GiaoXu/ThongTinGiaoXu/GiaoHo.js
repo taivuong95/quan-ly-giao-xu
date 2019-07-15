@@ -1,8 +1,8 @@
 import React from 'react';
-import { Form, Input, Button, Row, Col, Table } from 'antd';
-import FormItem from 'antd/lib/form/FormItem';
+import { Button, Table } from 'antd';
 import { GIAO_HO } from '../../../models/formModel';
 import CustomForm from '../../Form/CustomForm';
+
 const GiaoHo = props => {
   const data = [];
   for (let i = 0; i < 46; i++) {
@@ -38,7 +38,7 @@ const GiaoHo = props => {
 
   const GiaoHo = <CustomForm formModel={GIAO_HO} />;
 
-  const formGiaoHo = (
+  return (
     <>
       <div
         style={{
@@ -49,35 +49,6 @@ const GiaoHo = props => {
       >
         <p>Nhập Giáo Họ</p>
         {GiaoHo}
-        {/* <Form layout="inline">
-          <Row>
-            <Col>
-              <Form.Item label="Tên Giáo Họ">
-                <Input
-                  size="small"
-                  placeholder="Hãy Nhập Tên Giáo Họ"
-                  style={{ width: '500px', minWidth: '100%' }}
-                />
-              </Form.Item>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <Form.Item className="ButtonGroup" style={{ marginTop: '10px' }}>
-                <Button icon="plus" size="large" style={{ margin: '0 10px' }}>
-                  Thêm
-                </Button>
-
-                <Button icon="save" size="large" style={{ margin: '0 10px' }}>
-                  Lưu
-                </Button>
-                <Button icon="sync" size="large" style={{ margin: '0 10px' }}>
-                  Tải lại danh sách
-                </Button>
-              </Form.Item>
-            </Col>
-          </Row>
-        </Form> */}
       </div>
       <div
         className="table"
@@ -101,8 +72,6 @@ const GiaoHo = props => {
       </div>
     </>
   );
-
-  return formGiaoHo;
 };
 
 GiaoHo.propTypes = {};

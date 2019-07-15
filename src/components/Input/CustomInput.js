@@ -1,17 +1,14 @@
 import React from 'react';
-import { Form, Input, Icon, Col } from 'antd';
+import { Input, Button } from 'antd';
 import './CustomInput.scss';
-const { TextArea, Button } = Input;
-const CustomInput = props => {
-  // const { item, form } = props;
-  // const { getFieldDecorator } = props.form;
+import TextArea from 'antd/lib/input/TextArea';
 
+const CustomInput = props => {
   const item = { ...props.inputData };
-  console.log(item);
 
   switch (item.type) {
     case 'text':
-      return <Input size="small" placeholder={item.placeholder} />;
+      return <Input size="medium" placeholder={item.placeholder} />;
 
     case 'textarea':
       return <TextArea rows={4} />;
@@ -19,9 +16,8 @@ const CustomInput = props => {
     case 'button':
       return (
         <Button icon="plus" size="large">
-          Thêm
+          {item.name}
         </Button>
-
       );
 
     default:

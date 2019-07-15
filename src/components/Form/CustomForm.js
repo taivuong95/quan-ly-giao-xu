@@ -1,9 +1,6 @@
 import React from 'react';
-import { Form, Row, Input, Col } from 'antd';
+import { Form, Row, Col } from 'antd';
 import CustomInput from '../Input/CustomInput';
-import { Button } from 'antd/lib/radio';
-
-import { GIAO_XU } from '../../models/formModel';
 
 import classes from './CustomForm.module.scss';
 
@@ -17,7 +14,7 @@ const CustomForm = props => {
       {item.col.map(colItem => {
         return (
           <Col span={item.span} className={classes.Form}>
-            <Form.Item label={colItem.name} style={{ minWidth: '100px' }}>
+            <Form.Item label={colItem.type === 'button' ? '' : colItem.name}>
               <CustomInput inputData={colItem} />
             </Form.Item>
           </Col>
