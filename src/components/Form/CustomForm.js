@@ -1,25 +1,26 @@
 import React from 'react';
 import { Form, Row, Input, Col } from 'antd';
 import CustomInput from '../Input/CustomInput';
-import './CustomForm.scss';
+// import './CustomForm.scss';
 import { Button } from 'antd/lib/radio';
 
 import { GIAO_XU } from '../../models/formModel';
 
+import classes from './CustomForm.module.scss';
+
 const CustomForm = props => {
-  const {formModel} = props;
-  console.log(formModel);
-  
+  const { formModel, form } = props;
+  console.log(props.formModel);
+
   let toRender = [];
-  toRender = formModel.map((item, index) => (
+  toRender = props.formModel.map((item, index) => (
     <Row>
       {item.col.map(colItem => {
         return (
-          <Col span={item.span}>
-            {/* <Form.Item label={colItem.name}>
-              <Input size="small" placeholder="Hãy Nhập Tên Giáo Họ" />
-            </Form.Item> */}
-            <CustomInput type={colItem}/>
+          <Col span={item.span} className={classes.Form}>
+            <Form.Item label={colItem.name}>
+              <CustomInput inputData={colItem} />
+            </Form.Item>
           </Col>
         );
       })}
@@ -34,7 +35,16 @@ const CustomForm = props => {
     });
   };
   return (
-    <Form onSubmit={handleSubmit} className="form">
+    <Form
+      layout="inline"
+      onSubmit={handleSubmit}
+      className="form"
+      style={{
+        border: '1px solid #ccc',
+        padding: '20px',
+        borderRadius: '5px',
+      }}
+    >
       {toRender}
     </Form>
   );

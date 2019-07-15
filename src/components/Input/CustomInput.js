@@ -1,53 +1,33 @@
 import React from 'react';
-import { Form, Input, Icon, Button } from 'antd';
+import { Form, Input, Icon, Col } from 'antd';
 import './CustomInput.scss';
-
-const { TextArea } = Input;
+const { TextArea, Button } = Input;
 const CustomInput = props => {
-  const data = props;
-  const item = data.type;
-  console.log(item.type);
-  //const { getFieldDecorator } = form;
+  // const { item, form } = props;
+  // const { getFieldDecorator } = props.form;
+
+  const item = { ...props.inputData };
+  console.log(item);
 
   switch (item.type) {
     case 'text':
       return (
-        <Form.Item label={item.name} className="input">
-          {/* {getFieldDecorator(item.name, {
-            rules: [{ required: item.required, message: item.errMess }],
-          })( */}
-            <Input
-              prefix={
-                <Icon type={item.icon} style={{ color: 'rgba(0,0,0,.25)' }} />
-              }
-              placeholder={item.placeholder}
-            />
-        </Form.Item>
+        <Input
+          size="small"
+          placeholder={item.placeholder}
+          style={{ width: '500px', minWidth: '100%' }}
+        />
       );
 
-      case 'textarea':
-      return (
-        <Form.Item label={item.name} className="input">
-          {/* {getFieldDecorator(item.name, {
-            rules: [{ required: item.required, message: item.errMess }],
-          })( */}
-            <TextArea rows={4}
-              prefix={
-                <Icon type={item.icon} style={{ color: 'rgba(0,0,0,.25)' }} />
-              }
-              placeholder={item.placeholder}
-            />
-        </Form.Item>
-      );
+    case 'textarea':
+      return <TextArea rows={4} style={{ width: '500px', minWidth: '100%' }} />;
 
-      case 'button':
+    case 'button':
       return (
-        <Form.Item className="input">
-          {/* {getFieldDecorator(item.name, {
-            rules: [{ required: item.required, message: item.errMess }],
-          })( */}
-            <Button icon={item.icon}>{item.name}</Button>
-        </Form.Item>
+        <Button icon="plus" size="large" style={{ margin: '0 10px' }}>
+          Thêm
+        </Button>
+
       );
 
     default:
