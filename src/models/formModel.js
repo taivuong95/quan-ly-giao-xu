@@ -89,27 +89,24 @@ export const GIAO_HO = [
     ],
     span: 10,
   },
-  // {
-  //   col: [
-  //     {
-  //       name: 'Thêm',
-  //       type: 'button',
-  //       icon: 'plus',
-  //       required: 'true',
-  //     },
-  //     {
-  //       name: 'Lưu',
-  //       type: 'button',
-  //       icon: 'save',
-  //       required: 'true',
-  //     },
-  //     {
-  //       name: 'Tải lại danh sách',
-  //       type: 'button',
-  //       icon: 'sync',
-  //       required: 'true',
-  //     },
-  //   ],
-  //   span: 8,
-  // },
+];
+
+export const DS_GiAODAN = [
+  {
+    col: [
+      {
+        name: 'Tên giáo Họ:',
+        type: 'select',
+        required: 'true',
+        options: [
+          {
+            value: 'Tất cả',
+          },
+          {
+            value: 'Ngoài xứ',
+          },
+        ],
+      },
+    ],
+  },
 ];

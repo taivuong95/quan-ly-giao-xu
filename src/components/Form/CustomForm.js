@@ -1,6 +1,7 @@
 import React from 'react';
 import { Form, Row, Col } from 'antd';
 import CustomInput from '../Input/CustomInput';
+import 'antd/dist/antd.css';
 
 import classes from './CustomForm.module.scss';
 
@@ -14,9 +15,9 @@ const CustomForm = props => {
   let toRender = [];
   toRender = formModel.map((item, index) => (
     <Row>
-      {item.col.map(colItem => {
+      {item.col.map((colItem, index) => {
         return (
-          <Col span={item.span} className={classes.Form}>
+          <Col span={item.span} className={classes.Form} key={index}>
             <Form.Item label={colItem.type === 'button' ? '' : colItem.name}>
               <CustomInput inputData={colItem} changed={onChangeHandler} />
             </Form.Item>
@@ -37,7 +38,6 @@ const CustomForm = props => {
     <Form
       layout="inline"
       onSubmit={handleSubmit}
-      className="form"
       style={{
         border: '1px solid #ccc',
         padding: '20px',

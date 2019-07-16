@@ -11,30 +11,34 @@ import reducer from '../../store/reducers/gxReducer';
 import { GX_STATES_MODEL } from '../../models/gxStatesModel';
 import GiaoXu from '../GiaoXu/ThongTinGiaoXu/GiaoXu';
 import GiaoHo from '../GiaoXu/ThongTinGiaoXu/GiaoHo';
+import DSGiaoDan from '../GiaoXu/GiaoDanGiaDinh/DanhSachGiaoDan';
 
 const MainLayout = props => {
   const [tab, setTab] = useState('GX');
-  const [content, setContent] = useState(<GiaoXu />);
+  const [sideTab, setSideTab] = useState('Giáo xứ');
 
   const selectTab = data => {
     setTab(data);
   };
-  let cloneContent = content;
-  const selectContent = data => {
-    console.log(data);
-    switch (data) {
-      case 'Giáo xứ':
-        setContent(<GiaoXu />);
-        break;
-      case 'Giáo họ':
-        setContent(<GiaoHo />);
-        break;
-      default:
-        break;
-    }
+  let cloneContent = null;
 
-    // setContent(data);
+  const selectContent = data => {
+    setSideTab(data);
   };
+
+  switch (sideTab) {
+    case 'Giáo xứ':
+      cloneContent = <GiaoXu />;
+      break;
+    case 'Giáo họ':
+      cloneContent = <GiaoHo />;
+      break;
+    case 'Danh sách giáo dân':
+      cloneContent = <DSGiaoDan />;
+      break;
+    default:
+      break;
+  }
 
   return (
     <Layout>
